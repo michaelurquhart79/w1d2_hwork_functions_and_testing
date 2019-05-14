@@ -88,19 +88,29 @@ def number_to_short_month_name(integer)
   else
     return "Not valid input"
   end
-
 end
 
 def volume_of_cube(length)
-  volume = length ** 3
-  return volume
+  if length >= 0
+    volume = length ** 3
+    return volume
+  else
+    return "Sorry, I'm too stupid to deal with negative numbers."
+  end
 end
 
 def volume_of_sphere(radius)
+  # volume = 4/3 pi r^3
   volume = 4.0 / 3 * ((Math::PI) * (radius ** 3))
-  p volume
-  p Math::PI
   return volume
 end
 
-    # volume = 4/3 pi r^3
+# minus 459.67
+def fahrenheit_to_celsius(degf)
+  if degf >= -459.67
+    degc = (degf - 32.0) * 5.0 / 9.0
+    return degc
+  else
+    return "Sorry, that is below absolute zero."
+  end
+end

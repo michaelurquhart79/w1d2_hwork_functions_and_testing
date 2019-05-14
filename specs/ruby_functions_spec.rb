@@ -84,18 +84,37 @@ class FunctionsTest < MiniTest::Test
     assert_equal(8, volume_of_cube(2))
   end
 
+  def test_volume_of_cube_float()
+    assert_equal(2.5155, volume_of_cube(1.36).round(4))
+  end
+
+  def test_volume_of_cube_neg()
+    assert_equal("Sorry, I'm too stupid to deal with negative numbers.", volume_of_cube(-1.2))
+  end
+
   #Given the radius of a sphere calculate the volume
   def test_volume_of_sphere()
     #add test code here
-    sphere_volume = volume_of_sphere(3).floor
-    assert_equal(113, sphere_volume)
+    sphere_volume = volume_of_sphere(3).round(1)
+    assert_equal(113.1, sphere_volume)
+  end
 
+  def test_volume_of_sphere_float()
+    #add test code here
+    sphere_volume = volume_of_sphere(0.333).round(3)
+    assert_equal(0.155, sphere_volume)
   end
 
   #Given a value in farenheit, convert this into celsius.
   def test_fahrenheit_to_celsius()
     #add test code here
+    degc = fahrenheit_to_celsius(212)
+    assert_equal(100.00, degc.round(2))
   end
 
+  def test_fahrenheit_to_celsius_below_abs_zero()
+    degc = fahrenheit_to_celsius(-500)
+    assert_equal("Sorry, that is below absolute zero.", degc)
+  end
 
 end
